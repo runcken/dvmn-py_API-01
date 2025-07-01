@@ -1,7 +1,7 @@
 import requests
 
 
-cities = ('svo', 'london', 'череповец')
+cities = ['svo', 'london', 'череповец']
 
 
 def get_weather():
