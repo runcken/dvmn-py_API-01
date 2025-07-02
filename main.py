@@ -3,7 +3,7 @@ import requests
 
 LOCATIONS = ['SVO', 'London', 'Череповец']
 
-params = {
+ARGUMENTS = {
     'lang': 'ru',
     'm': '',
     'n': '',
@@ -19,7 +19,7 @@ def print_weather():
             'http://wttr.in/{location}'
             .format(location=location)
             )
-        response = requests.get(url, params=params)
+        response = requests.get(url, params=ARGUMENTS)
         response.raise_for_status()
         print(response.text)
 
