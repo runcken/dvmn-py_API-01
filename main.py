@@ -1,22 +1,31 @@
 import requests
 
 
-cities = ['svo', 'london', 'череповец']
+LOCATIONS = ['SVO', 'London', 'Череповец']
+
+params = {
+    'lang': 'ru',
+    'm': '',
+    'n': '',
+    'q': '',
+    'M': '',
+    'T': ''
+    }
 
 
-def get_weather():
-    for city in cities:
+def print_weather():
+    for location in LOCATIONS:
         url = (
-            'http://wttr.in/{city}?lang=ru&3mnqMT&%20HTTP/1.1'
-            .format(city=city)
+            'http://wttr.in/{location}'
+            .format(location=location)
             )
-        response = requests.get(url)
+        response = requests.get(url, params=params)
         response.raise_for_status()
         print(response.text)
 
 
 def main():
-    get_weather()
+    print_weather()
 
 
 if __name__ == '__main__':
